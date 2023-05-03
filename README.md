@@ -1,5 +1,7 @@
 ﻿## Crochet Application
 
+Link to Jira: https://proiectfiscrosetat.atlassian.net/jira/software/projects/CA/boards/1
+
 ### Team Members:
 - Șodinca Iulia-Cristiana
 - Vieriu Gabriela 
