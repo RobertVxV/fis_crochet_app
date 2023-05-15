@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.fis_crochet_app.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.HelloController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="260.0" style="-fx-background-color: #263F73;" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="342.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="126.0" layoutY="41.0" text="Welcome!">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="122.0" text="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="174.0" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="144.0" layoutY="122.0" promptText="Username" />
+            <PasswordField fx:id="passwordField" layoutX="144.0" layoutY="174.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="116.0" layoutY="264.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="30.0" prefWidth="108.0" text="Login" />
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="35.0" layoutY="225.0" prefHeight="18.0" prefWidth="269.0" textAlignment="CENTER" textFill="RED" />
+            <Label layoutX="78.0" layoutY="327.0" text="Don't already have an account?" />
+            <Label fx:id="registerLabel" layoutX="131.0" layoutY="353.0" text="Register here" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
