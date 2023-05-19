@@ -8,5 +8,7 @@ module com.example.fis_crochet_app {
 
     opens main_page_GUI to javafx.fxml;
     exports main_page_GUI;
+
+
 }
 

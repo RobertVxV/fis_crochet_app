@@ -26,8 +26,8 @@
   </rowConstraints>
    <children>
       <Button fx:id="Edit_Button" onAction="#handleEditActions"  mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Edit Info" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Button fx:id="Stitch_Adder" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Stitch" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button fx:id="Stitch_Lists" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Stitch List" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="Stitch_Adder" onAction="#handleAddStitchActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Stitch" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="Stitch_Lists"  onAction="#handleStitchListActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Stitch List" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
       <Button fx:id="Add_Text" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Text" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
       <Button fx:id="Add_Row" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Row" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
       <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5d5ec;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowSpan="7" GridPane.valignment="CENTER" />

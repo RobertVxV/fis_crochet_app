@@ -51,4 +51,21 @@ public class design_making_controller {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    protected void handleAddStitchActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("add_stitch.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void handleStitchListActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("stitch_list.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
