@@ -28,7 +28,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'com.example.fis_crochet_app'
-  mainClass = 'com.example.fis_crochet_app.LoginPage'
+  mainClass = 'com.example.fis_crochet_app.LoginApp'
 }
 
 javafx {

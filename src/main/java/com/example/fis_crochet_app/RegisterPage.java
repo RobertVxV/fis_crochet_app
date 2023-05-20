@@ -11,7 +11,7 @@ public class RegisterPage extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginPage.class.getResource("register_page_layout.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApp.class.getResource("register_page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 650, 450);
         stage.setTitle("Crochet Application");
         stage.setScene(scene);

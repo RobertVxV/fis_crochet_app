@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginPage extends Application {
+public class LoginApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
         //stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginPage.class.getResource("login_page_layout.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApp.class.getResource("login_page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Crochet Application");
         stage.setScene(scene);

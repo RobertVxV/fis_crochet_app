@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 ;
 
-public class new_design_entrance_controller implements Initializable {
+public class NewDesignEntranceController implements Initializable {
 
     private Stage stage;
     private Scene scene;

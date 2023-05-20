@@ -35,7 +35,7 @@ public class LoginController {
 
     @FXML
     public void openRegisterPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("register_page_layout.fxml"));
+        root = FXMLLoader.load(getClass().getResource("register_page.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

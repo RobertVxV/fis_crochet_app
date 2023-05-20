@@ -12,17 +12,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 ;
-public class stitch_list_controller {
+public class AddStitchController {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    private Button Back ;
+    private Button Submit ;
 
     @FXML
-    protected void handleBackToDesignActions (ActionEvent event) throws IOException{
+    protected void handleSubmitActions (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
