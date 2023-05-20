@@ -1,20 +1,17 @@
-package main_page_GUI;
+package com.example.fis_crochet_app;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;;
-import javafx.scene.control.ChoiceBox;
-import javafx.collections.*;
-import javafx.scene.control.Label;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import java.io.*;
+
+import java.io.IOException;
+
+;
 public class design_making_controller {
 
     private Stage stage;

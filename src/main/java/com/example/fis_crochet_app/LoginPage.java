@@ -1,16 +1,11 @@
 package com.example.fis_crochet_app;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import com.example.fis_crochet_app.LoginController.*;
 
 public class LoginPage extends Application {
 

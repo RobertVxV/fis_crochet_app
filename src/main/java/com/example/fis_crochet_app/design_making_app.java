@@ -1,4 +1,4 @@
-package main_page_GUI;
+package com.example.fis_crochet_app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
