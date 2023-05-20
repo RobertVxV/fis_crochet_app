@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class main_page_controller {
+public class MainPageController {
 
     private Stage stage;
     private Scene scene;
@@ -27,7 +27,7 @@ public class main_page_controller {
     @FXML
     private Button Liked_Designs ;
     @FXML
-    private Button logout_button ;
+    private Button logoutButton;
     @FXML
     private Label welcomeText;
 
@@ -54,7 +54,7 @@ public class main_page_controller {
     }
     @FXML
     protected void openLoginPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("login_page_layout.fxml"));
+        root = FXMLLoader.load(getClass().getResource("login_page.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
