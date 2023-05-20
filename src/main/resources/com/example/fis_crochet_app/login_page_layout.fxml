@@ -32,10 +32,10 @@
             </Label>
             <TextField fx:id="usernameTextField" layoutX="144.0" layoutY="122.0" promptText="Username" />
             <PasswordField fx:id="passwordField" layoutX="144.0" layoutY="174.0" promptText="Password" />
-            <Button fx:id="loginButton" layoutX="116.0" layoutY="264.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="30.0" prefWidth="108.0" text="Login" />
+            <Button fx:id="loginButton" layoutX="117.0" layoutY="265.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="30.0" prefWidth="108.0" text="Login" />
             <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="35.0" layoutY="225.0" prefHeight="18.0" prefWidth="269.0" textAlignment="CENTER" textFill="RED" />
-            <Label layoutX="78.0" layoutY="327.0" text="Don't already have an account?" />
-            <Label fx:id="registerLabel" layoutX="131.0" layoutY="353.0" text="Register here" />
+            <Label layoutX="88.0" layoutY="319.0" text="Don't already have an account?" />
+            <Button fx:id="registerButton" layoutX="127.0" layoutY="346.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" text="Register here" />
          </children>
       </AnchorPane>
    </center>
