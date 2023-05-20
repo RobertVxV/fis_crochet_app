@@ -1,6 +1,5 @@
 package main_page_GUI;
 
-import com.example.fis_crochet_app.HelloApplication;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,4 +1,4 @@
-package com.example.fis_crochet_app;
+package main_page_GUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

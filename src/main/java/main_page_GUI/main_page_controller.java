@@ -2,12 +2,21 @@ package main_page_GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
-import javafx.stage.Window;
+import java.io.*;
+
+
 public class main_page_controller {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
     private Button My_Creations ;
     @FXML
@@ -27,8 +36,12 @@ public class main_page_controller {
         welcomeText.setText("Welcome to MyCreations!");
     }
     @FXML
-    protected void handleNewCreationActions () {
-        welcomeText.setText("Welcome to NewCreation!");
+    protected void handleNewCreationActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("new_design_entrance.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     protected void handleBrowseDesignsActions () {
