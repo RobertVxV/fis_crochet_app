@@ -27,7 +27,7 @@ public class main_page_controller {
     @FXML
     private Button Liked_Designs ;
     @FXML
-    private Button Exit ;
+    private Button logout_button ;
     @FXML
     private Label welcomeText;
 
@@ -53,8 +53,15 @@ public class main_page_controller {
         welcomeText.setText("Welcome to LikedDesigns!");
     }
     @FXML
-    protected void handleExitActions (ActionEvent event) {
-        Stage stage = (Stage) Exit.getScene().getWindow();
-        stage.close();
+    protected void openLoginPage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("login_page_layout.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void handleExitActions (ActionEvent event) throws IOException {
+        openLoginPage(event);
     }
 }
