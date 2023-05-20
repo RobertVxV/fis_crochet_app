@@ -9,6 +9,8 @@ plugins {
 group 'com.example'
 version '1.0-SNAPSHOT'
 
+
+
 repositories {
   mavenCentral()
 }
@@ -26,7 +28,7 @@ tasks.withType(JavaCompile) {
 
 application {
   mainModule = 'com.example.fis_crochet_app'
-  mainClass = 'com.example.fis_crochet_app.HelloApplication'
+  mainClass = 'com.example.fis_crochet_app.LoginPage'
 }
 
 javafx {
@@ -38,6 +40,8 @@ dependencies {
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+  // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+  implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.0.33'
 }
 
 test {
