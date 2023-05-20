@@ -1,31 +1,28 @@
-package main_page_GUI;
+package com.example.fis_crochet_app;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;;
-import javafx.scene.control.ChoiceBox;
-import javafx.collections.*;
-import javafx.scene.control.Label;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import java.io.*;
-public class add_stitch_controller {
+
+import java.io.IOException;
+
+;
+public class stitch_list_controller {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    private Button Submit ;
+    private Button Back ;
 
     @FXML
-    protected void handleSubmitActions (ActionEvent event) throws IOException{
+    protected void handleBackToDesignActions (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
