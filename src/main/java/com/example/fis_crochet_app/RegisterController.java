@@ -1,5 +1,7 @@
 package com.example.fis_crochet_app;
 
+import com.example.fis_crochet_app.exceptions.UsernameAlreadyExistsException;
+import com.example.fis_crochet_app.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,7 +41,19 @@ public class RegisterController {
 
             if (passwordField.getText().equals(passwordField1.getText()) == true) {
                 registerMessageLabel.setTextFill(Color.GREEN);
-                registerMessageLabel.setText("You tried to register.");
+
+                try {
+                    UserService.addUser(
+                            usernameTextField.getText(), emailTextField.getText(),
+                            passwordField.getText()
+                    );
+                    registerMessageLabel.setTextFill(Color.GREEN);
+                    registerMessageLabel.setText("Cont creat cu succes!\nVa puteti autentifica acum.");
+
+                } catch (UsernameAlreadyExistsException e1) {
+                    registerMessageLabel.setText(e1.getMessage());
+                }
+
                 registerConfirmation(e);
                 return;
             }

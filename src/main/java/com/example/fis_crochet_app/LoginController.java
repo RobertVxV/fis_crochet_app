@@ -1,5 +1,8 @@
 package com.example.fis_crochet_app;
 
+import com.example.fis_crochet_app.exceptions.BadCredentials;
+import com.example.fis_crochet_app.model.User;
+import com.example.fis_crochet_app.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,8 +57,19 @@ public class LoginController {
 
 
         if(usernameTextField.getText().isBlank() == false && passwordField.getText().isBlank() == false) {
-            loginMessageLabel.setTextFill(Color.GREEN);
-            loginMessageLabel.setText("You tried to login.");
+            try{
+                User user = UserService.login(usernameTextField.getText(), passwordField.getText());
+                loginMessageLabel.setTextFill(Color.GREEN);
+                loginMessageLabel.setText("Ok");
+                /*if (user.getRole().equals("Client")) {
+                    MainPageApp.switchScene("dashboard_client.fxml", "Dashboard client");
+                } else if (user.getRole().equals("Muncitor")) {
+                    MainPageApp.switchScene("dashboard_muncitor.fxml", "Dashboard muncitor");
+                }*/
+            }catch (BadCredentials e2){
+                loginMessageLabel.setTextFill(Color.RED);
+                loginMessageLabel.setText(e2.getMessage());
+            }
             openMainPage(e);
         }
         else {
