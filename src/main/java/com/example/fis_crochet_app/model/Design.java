@@ -24,6 +24,7 @@ public class Design {
     public ArrayList<Stitch> getStitches() {
         return stitches;
     }
+    public Design(){}
     public Design(String Name, String Difficulty, double Price, String Description, boolean Public, boolean Free)
     {
         this.Name = Name;
@@ -31,17 +32,18 @@ public class Design {
         if(Free)
         {
             this.Price = 0;
-            this.Free = Free;
         }
         else
         {
             this.Price = Price;
-            this.Free = false;
         }
+        this.Free = Free;
         this.Description = Description;
         this.Public = Public;
         this.Likes = 0;
         this.NoOfRows = 0;
+        this.stitches = new ArrayList<>();
+        this.items = new ArrayList<>();
 
     }
 
