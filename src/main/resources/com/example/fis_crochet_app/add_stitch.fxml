@@ -26,23 +26,23 @@
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="105.0" text="Name" GridPane.rowIndex="1" />
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="101.0" text="Abbreviation" GridPane.rowIndex="2" />
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="106.0" text="Description" GridPane.rowIndex="3" />
-      <Button fx:id="Submit" onAction="#handleSubmitActions"  alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="477.0" style="-fx-background-color: #A63C95;" text="Submit Stitch" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button  fx:id="Submit" onAction="#handleSubmitActions"  alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"  prefHeight="26.0" prefWidth="477.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Submit Stitch" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="204.0" />
          </GridPane.margin>
-      </TextField>
-      <TextField prefWidth="390.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      </TextField >
+      <TextField  fx:id="Name" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" prefWidth="390.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin>
       </TextField>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField  fx:id="Abbreviation" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin>
       </TextField>
-      <TextArea prefHeight="195.0" prefWidth="479.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
+      <TextArea  fx:id="Description" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" prefHeight="195.0" prefWidth="479.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin>

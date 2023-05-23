@@ -7,8 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 ;
@@ -17,12 +20,26 @@ public class AddStitchController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML
+    private TextField Name;
+    @FXML
+    private TextField Abbreviation;
+    @FXML
+    private TextArea Description;
 
     @FXML
     private Button Submit ;
 
     @FXML
     protected void handleSubmitActions (ActionEvent event) throws IOException{
+        StringBuilder sb = new StringBuilder();
+        sb.append(Name.getText().toString() + " ");
+        sb.append(Abbreviation.getText().toString() + " ");
+        sb.append(Description.getText().toString() + "\n");
+        //File file = new File("src/main/resources/Designs") ;
+        FileWriter W = new FileWriter("src/main/resources/Stitches", true);
+        W.write(sb.toString());
+        W.close();
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
