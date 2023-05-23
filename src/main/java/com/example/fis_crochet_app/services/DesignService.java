@@ -1,8 +1,6 @@
 package com.example.fis_crochet_app.services;
 
-import com.example.fis_crochet_app.exceptions.BadCredentials;
 import com.example.fis_crochet_app.exceptions.DesignAlreadyExists;
-import com.example.fis_crochet_app.exceptions.UsernameAlreadyExistsException;
 import com.example.fis_crochet_app.model.Design;
 import com.example.fis_crochet_app.model.User;
 import org.dizitart.no2.Nitrite;
@@ -21,8 +19,8 @@ public class DesignService {
         private static Design current_design;
 
         public static void init() {
-            Nitrite db = FileSystemService.getDatabase();
-            System.out.println(User.class);
+            Nitrite db = DesignFileSystemService.getDesignDatabase();
+            System.out.println(Design.class);
             designRepository = db.getRepository(Design.class);
 
             db.commit();
@@ -32,7 +30,10 @@ public class DesignService {
             checkDesignDoesNotAlreadyExist(Name);
             if(IsFree)
                 Price = 0;
-            designRepository.insert(new Design(Name, Difficulty, Price, Description, Public, IsFree));
+            Design newDesign = new Design(Name, Difficulty, Price, Description, Public, IsFree);
+            designRepository.insert(newDesign);
+            current_design = newDesign;
+
         }
 
         public static Design findDesign(String Name) {
@@ -52,16 +53,18 @@ public class DesignService {
 
 
 
-        public static Design editDesign(String name, String pass) {
-            for (Design design : designRepository.find()) {
-                if (Objects.equals(name, design.getName())) {
-                        current_design = design;
-                        return design;
-
-                }
-            }
-            return null;
+    public static Design editDesign(String Name, String Difficulty, double Price, String Description, boolean Public, boolean IsFree) throws DesignAlreadyExists {
+        Design existingDesign = findDesign(Name);
+        if (existingDesign != null && !existingDesign.equals(current_design)) {
+            throw new DesignAlreadyExists(Name);
         }
+        if (IsFree) {
+            Price = 0;
+        }
+        Design design = new Design(Name, Difficulty, Price, Description, Public, IsFree);
+        current_design = design;
+        return design;
+    }
 
         public static Design get_current_design() {
             return current_design;

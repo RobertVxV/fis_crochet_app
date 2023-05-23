@@ -140,4 +140,7 @@ public class Design {
     r.No = NoOfRows;
     NoOfRows ++;
     }
+    public int hashCode() {
+        return Objects.hash(Name);
+    }
 }

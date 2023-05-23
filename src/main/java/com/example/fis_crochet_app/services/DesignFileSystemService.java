@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 public class DesignFileSystemService {
     public static String APPLICATION_FOLDER = ".design";
     public static String DESIGN_FOLDER = System.getProperty("user.home");
-    public static Path APPLICATION_HOME_PATH = Paths.get(DESIGN_FOLDER, APPLICATION_FOLDER);
+    public static Path DESIGN_HOME_PATH = Paths.get(DESIGN_FOLDER, APPLICATION_FOLDER);
 
     private static Nitrite design_database;
 
@@ -20,11 +20,11 @@ public class DesignFileSystemService {
         design_database.commit();
 
     }
-    public static Nitrite getDatabase(){
+    public static Nitrite getDesignDatabase(){
         return design_database;
     }
     public static Path getPathToFile(String... path) {
-        Path p = APPLICATION_HOME_PATH.resolve(Paths.get(".", path));
+        Path p = DESIGN_HOME_PATH.resolve(Paths.get(".", path));
         String s = p.toString();
         s = s.replace("./", "");
 //        System.out.println(s);

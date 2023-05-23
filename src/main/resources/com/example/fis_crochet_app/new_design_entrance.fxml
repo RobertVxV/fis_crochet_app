@@ -43,7 +43,7 @@
       <TextField style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
       <Button fx:id="Submit_Design_Info_Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSubmitAction" prefHeight="34.0" prefWidth="134.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Submit" GridPane.columnIndex="2" GridPane.rowIndex="9" />
       <TextArea fx:id="Description" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" GridPane.rowSpan="2" />
-      <TextField fx:id="Price_TextBox" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      <TextField fx:id="Price_TextBox" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
       <Label alignment="CENTER" prefHeight="18.0" prefWidth="398.0" text="Design Info" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
          <font>
             <Font name="Lucida Calligraphy Italic" size="50.0" />
