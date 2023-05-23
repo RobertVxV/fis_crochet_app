@@ -3,7 +3,8 @@ package com.example.fis_crochet_app.model;
 
 import org.dizitart.no2.objects.Id;
 
-public class User {
+public class
+User {
     @Id
     private String email;
     private String password;

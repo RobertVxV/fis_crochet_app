@@ -7,6 +7,7 @@ module com.example.fis_crochet_app {
 
     opens com.example.fis_crochet_app to javafx.fxml;
     exports com.example.fis_crochet_app;
-    opens com.example.fis_crochet_app.model to com.fasterxml.jackson.databind;
+    exports com.example.fis_crochet_app.model;
+    opens com.example.fis_crochet_app.model to com.fasterxml.jackson.databind, javafx.fxml;
 }
 
