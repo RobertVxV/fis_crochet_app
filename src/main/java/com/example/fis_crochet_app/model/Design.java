@@ -1,8 +1,10 @@
 package com.example.fis_crochet_app.model;
 
+import org.dizitart.no2.objects.Id;
 import java.util.*;
 public class Design {
     private int NoOfRows;
+    @Id
     private String Name;
 
     public int getNoOfRows() {

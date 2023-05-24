@@ -63,6 +63,12 @@ public class NewDesignEntranceController implements Initializable {
                 DesignService.addDesign(Design_Name.getText(), Difficulty_Box.getValue(), Double.parseDouble(Price_TextBox.getText()), Description.getText(), Make_PublicCheckbox.isSelected(), Free_Checkbox.isSelected() );
                 Error_Message.setTextFill(Color.GREEN);
                 Error_Message.setText("Design Added Sucessfully");
+                root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
             } catch(DesignAlreadyExists e1)
             {
                 Error_Message.setTextFill(Color.RED);
@@ -70,11 +76,7 @@ public class NewDesignEntranceController implements Initializable {
                 ;
             }
 
-            root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+
         }
         else
         {
