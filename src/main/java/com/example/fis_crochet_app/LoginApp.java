@@ -38,9 +38,9 @@ public class LoginApp extends Application {
             applicationHomePath.toFile().mkdirs();
     }
     private void initDesignDirectory() {
-        Path applicationHomePath = DesignFileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
+        Path designHomePath = DesignFileSystemService.DESIGN_HOME_PATH;
+        if (!Files.exists(designHomePath))
+           designHomePath.toFile().mkdirs();
     }
     public static void main(String[] args) {
         launch();
