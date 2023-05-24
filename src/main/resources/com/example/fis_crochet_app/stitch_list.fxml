@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5d5ec;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.StitchListController">
    <children>
       <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBackToDesignActions" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Back To Design" />
-      <ListView layoutX="55.0" layoutY="93.0" prefHeight="246.0" prefWidth="498.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="39.0" prefHeight="18.0" prefWidth="307.0" text="List of Stitches">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="14.0" prefHeight="18.0" prefWidth="307.0" text="List of Stitches">
          <font>
             <Font name="Bookman Old Style" size="30.0" />
          </font>
       </Label>
+      <TableView fx:id = "StitchList" layoutX="54.0" layoutY="79.0" prefHeight="242.0" prefWidth="492.0" style="-fx-background-color: e3cfe8; -fx-border-color: #47064e;">
+        <columns>
+          <TableColumn  fx:id = "abbrColumn"  prefWidth="75.0" text="Name" style = "-fx-background-color:  #d487d3; -fx-border-color: #47064e; "/>
+          <TableColumn  fx:id = "nameColumn"  prefWidth="75.0" text="Abbr" style = "-fx-background-color:  #d487d3; -fx-border-color: #47064e; "/>
+            <TableColumn  fx:id = "descriptionColumn" prefWidth="340.79998779296875" text="Description" style = "-fx-background-color:  #d487d3; -fx-border-color: #47064e;"/>
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

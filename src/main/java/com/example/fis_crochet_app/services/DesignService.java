@@ -46,6 +46,7 @@ public class DesignService {
         }
     public static void addStitchToDesign(Stitch s) {
             current_design.addStitch(s);
+            designRepository.update(current_design);
         }
     public static String getDesignDifficulty() {
         return current_design.getDifficulty();
@@ -109,7 +110,15 @@ public class DesignService {
             return md;
         }
 
+public static String listStitches()
+{
+    return current_design.listStitches();
+}
 
+    public static ArrayList<Stitch> Stitches()
+    {
+        return current_design.getStitches();
+    }
         public static Integer getDesignsCount() {
             int n = 0;
             for (Design d : designRepository.find())

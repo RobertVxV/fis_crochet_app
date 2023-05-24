@@ -1,6 +1,7 @@
 package com.example.fis_crochet_app;
 
 import com.example.fis_crochet_app.model.Stitch;
+import com.example.fis_crochet_app.services.DesignService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,7 @@ public class AddStitchController {
     @FXML
     protected void handleSubmitActions (ActionEvent event) throws IOException{
         Stitch s = new Stitch(Name.getText(), Abbreviation.getText(), Description.getText());
-        addStitchToDesign(s);
+        DesignService.addStitchToDesign(s);
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

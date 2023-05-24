@@ -125,8 +125,16 @@ public class Design {
         this.items.add(o);
     }
 
+
     private ArrayList<Object> items = new ArrayList<Object>();
 
+    public String listStitches()
+    {
+        String s = "";
+        for(Stitch st : this.stitches )
+            s = s + st.toString() + "\n";
+        return s;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
