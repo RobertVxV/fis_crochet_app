@@ -66,6 +66,30 @@ public class DesignMakingController {
         stage.show();
     }
 
-    public static class EditDesignController {
+    @FXML
+    protected void handleAddRowActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("add_row.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
+    @FXML
+    protected void handleAddTextActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("add_text.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void handleAddPhotoActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("add_photo.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }

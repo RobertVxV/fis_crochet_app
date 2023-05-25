@@ -45,7 +45,6 @@ public class StitchListController implements Initializable {
         abbrColumn.setCellValueFactory(new PropertyValueFactory<Stitch, String>("Abbr"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Stitch, String>("Name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Stitch, String>("Description"));
-        StitchList.getColumns().addAll( abbrColumn, nameColumn, descriptionColumn);
         for(Stitch s :DesignService.Stitches() )
         StitchList.getItems().add(s);
 
