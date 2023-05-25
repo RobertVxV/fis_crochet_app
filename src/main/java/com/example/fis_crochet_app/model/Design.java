@@ -125,8 +125,16 @@ public class Design {
         this.items.add(o);
     }
 
+
     private ArrayList<Object> items = new ArrayList<Object>();
 
+    public String listStitches()
+    {
+        String s = "";
+        for(Stitch st : this.stitches )
+            s = s + st.toString() + "\n";
+        return s;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -138,9 +146,9 @@ public class Design {
 
         return design != null ? Name.equals(design.Name) : design.Name == null;
     }
-    public void getRowNumber(Row r) {
-    r.No = NoOfRows;
+    public int getRowNumber() {
     NoOfRows ++;
+    return NoOfRows;
     }
     public int hashCode() {
         return Objects.hash(Name);
