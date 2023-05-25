@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5d5ec;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.MyDesignController">
+    <children>
+        <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBackToMenuActions" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Back To Menu" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="20.0" prefHeight="18.0" prefWidth="307.0" text="My Designs">
+            <font>
+                <Font name="Bookman Old Style" size="30.0" />
+            </font>
+        </Label>
+        <TableView fx:id="MyDesigns" layoutX="54.0" layoutY="79.0" prefHeight="242.0" prefWidth="492.0" style="-fx-background-color: e3cfe8; -fx-border-color: #47064e;">
+            <columns>
+                <TableColumn fx:id="editColumn" prefWidth="489.5999755859375" style="-fx-background-color:  #d487d3; -fx-border-color: #47064e; " text="Edit" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

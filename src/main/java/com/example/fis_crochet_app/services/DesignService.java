@@ -36,6 +36,11 @@ public class DesignService {
 
         }
 
+        public static ObjectRepository <Design> getDesignRepo()
+        {
+            return designRepository;
+        }
+
         public static Design findDesign(String Name) {
             for (Design design : designRepository.find()) {
                 if (Objects.equals(Name, design.getName()))
@@ -148,6 +153,11 @@ public static String listStitches()
             return n;
         }
 
+    public static void setCurrentDesign(String s) {
+            for(Design d : designRepository.find())
+                if (d.getName().equals(s))
+                    current_design = d;
     }
+}
 
 
