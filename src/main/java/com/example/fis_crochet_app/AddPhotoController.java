@@ -28,10 +28,20 @@ public class AddPhotoController {
 
     @FXML
     private Button Submit ;
+    @FXML
+    private Button Cancel ;
 
     @FXML
     protected void handleSubmitActions (ActionEvent event) throws IOException{
 
+        root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void handleCancelActions (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

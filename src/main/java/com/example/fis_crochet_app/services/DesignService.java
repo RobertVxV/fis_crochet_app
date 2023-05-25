@@ -1,17 +1,16 @@
 package com.example.fis_crochet_app.services;
 
 import com.example.fis_crochet_app.exceptions.DesignAlreadyExists;
+import com.example.fis_crochet_app.exceptions.StitchAlreadyExists;
 import com.example.fis_crochet_app.model.Design;
+import com.example.fis_crochet_app.model.Row;
 import com.example.fis_crochet_app.model.Stitch;
-import com.example.fis_crochet_app.model.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 public class DesignService {
 
@@ -44,7 +43,8 @@ public class DesignService {
             }
             return null;
         }
-    public static void addStitchToDesign(Stitch s) {
+    public static void addStitchToDesign(Stitch s) throws StitchAlreadyExists{
+            checkStitchNotInDesign(s.getAbbr());
             current_design.addStitch(s);
             designRepository.update(current_design);
         }
@@ -77,6 +77,13 @@ public class DesignService {
             }
         }
 
+        public static void checkStitchNotInDesign (String abbr) throws StitchAlreadyExists {
+            for(Stitch s : current_design.getStitches()){
+                if (Objects.equals(abbr, s.getAbbr()))
+                    throw new StitchAlreadyExists(abbr);
+            }
+
+        }
 
 
     public static void editDesign(String Name, String Difficulty, double Price, String Description, boolean Public, boolean IsFree) throws DesignAlreadyExists {
@@ -118,6 +125,21 @@ public static String listStitches()
     public static ArrayList<Stitch> Stitches()
     {
         return current_design.getStitches();
+    }
+    public static ArrayList<Object> Items()
+    {
+        return current_design.getItems();
+    }
+
+
+    public static void addRowToDesign(Row r)
+    {
+        r.setNo(current_design.getRowNumber());
+        current_design.addItem(r);
+    }
+    public static void addTextToDesign(String s)
+    {
+        current_design.addItem(s);
     }
         public static Integer getDesignsCount() {
             int n = 0;

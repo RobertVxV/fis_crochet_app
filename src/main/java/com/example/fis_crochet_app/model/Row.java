@@ -28,6 +28,12 @@ public class Row {
     public void setStitchesUsed(String stitchesUsed) {
         StitchesUsed = stitchesUsed;
     }
+    public Row() {};
+    public Row(String Text)
+    {
+        this.StitchesUsed = Text;
+        this.TotalStitches = 0;
+    }
     public String toString()
     {
         String s = "R" + No + ": " + StitchesUsed + " Total: "  + TotalStitches;

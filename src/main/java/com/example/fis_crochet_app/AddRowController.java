@@ -1,6 +1,6 @@
 package com.example.fis_crochet_app;
 
-import com.example.fis_crochet_app.model.Stitch;
+import com.example.fis_crochet_app.model.Row;
 import com.example.fis_crochet_app.services.DesignService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,11 +28,22 @@ public class AddRowController {
 
     @FXML
     private Button Submit ;
+    @FXML
+    private Button Cancel ;
 
     @FXML
     protected void handleSubmitActions (ActionEvent event) throws IOException{
 
-
+        Row r = new Row(Row.getText());
+        DesignService.addRowToDesign(r);
+        root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void handleCancelActions (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

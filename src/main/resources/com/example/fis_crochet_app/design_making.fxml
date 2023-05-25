@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5c205b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.fis_crochet_app.DesignMakingController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5c205b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.DesignMakingController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,13 +25,13 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="Edit_Button" onAction="#handleEditActions"  mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Edit Info" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Button fx:id="Stitch_Adder" onAction="#handleAddStitchActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Stitch" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button fx:id="Stitch_Lists"  onAction="#handleStitchListActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Stitch List" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Button fx:id="Add_Text" onAction="#handleAddTextActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Text" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-      <Button fx:id="Add_Row" onAction="#handleAddRowActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Row" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5d5ec;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowSpan="7" GridPane.valignment="CENTER" />
-      <Button fx:id="Add_Photo" onAction="#handleAddPhotoActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Add Photo" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-      <Button fx:id="Save_Exit" onAction="#handleSaveExitActions" mnemonicParsing="false" style="-fx-background-color: #f5d5ec;" text="Save &amp; Exit" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+      <Button fx:id="Edit_Button" mnemonicParsing="false" onAction="#handleEditActions" style="-fx-background-color: #f5d5ec;" text="Edit Info" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="Stitch_Adder" mnemonicParsing="false" onAction="#handleAddStitchActions" style="-fx-background-color: #f5d5ec;" text="Add Stitch" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button fx:id="Stitch_Lists" mnemonicParsing="false" onAction="#handleStitchListActions" style="-fx-background-color: #f5d5ec;" text="Stitch List" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="Add_Text" mnemonicParsing="false" onAction="#handleAddTextActions" style="-fx-background-color: #f5d5ec;" text="Add Text" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Button fx:id="Add_Row" mnemonicParsing="false" onAction="#handleAddRowActions" style="-fx-background-color: #f5d5ec;" text="Add Row" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <ScrollPane fx:id="DesignPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5d5ec;" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowSpan="7" GridPane.valignment="CENTER" />
+      <Button fx:id="Add_Photo" mnemonicParsing="false" onAction="#handleAddPhotoActions" style="-fx-background-color: #f5d5ec;" text="Add Photo" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <Button fx:id="Save_Exit" mnemonicParsing="false" onAction="#handleSaveExitActions" style="-fx-background-color: #f5d5ec;" text="Save &amp; Exit" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

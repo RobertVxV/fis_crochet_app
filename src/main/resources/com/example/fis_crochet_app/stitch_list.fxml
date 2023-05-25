@@ -15,11 +15,11 @@
             <Font name="Bookman Old Style" size="30.0" />
          </font>
       </Label>
-      <TableView fx:id = "StitchList" layoutX="54.0" layoutY="79.0" prefHeight="242.0" prefWidth="492.0" style="-fx-background-color: e3cfe8; -fx-border-color: #47064e;">
+      <TableView fx:id="StitchList" layoutX="54.0" layoutY="79.0" prefHeight="242.0" prefWidth="492.0" style="-fx-background-color: e3cfe8; -fx-border-color: #47064e;">
         <columns>
-          <TableColumn  fx:id = "abbrColumn"  prefWidth="75.0" text="Name" style = "-fx-background-color:  #d487d3; -fx-border-color: #47064e; "/>
-          <TableColumn  fx:id = "nameColumn"  prefWidth="75.0" text="Abbr" style = "-fx-background-color:  #d487d3; -fx-border-color: #47064e; "/>
-            <TableColumn  fx:id = "descriptionColumn" prefWidth="340.79998779296875" text="Description" style = "-fx-background-color:  #d487d3; -fx-border-color: #47064e;"/>
+          <TableColumn fx:id="abbrColumn" prefWidth="75.0" style="-fx-background-color:  #d487d3; -fx-border-color: #47064e; " text="Abbr" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" style="-fx-background-color:  #d487d3; -fx-border-color: #47064e; " text="Name" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="340.79998779296875" style="-fx-background-color:  #d487d3; -fx-border-color: #47064e;" text="Description" />
         </columns>
       </TableView>
    </children>

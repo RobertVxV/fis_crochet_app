@@ -146,9 +146,9 @@ public class Design {
 
         return design != null ? Name.equals(design.Name) : design.Name == null;
     }
-    public void getRowNumber(Row r) {
-    r.No = NoOfRows;
+    public int getRowNumber() {
     NoOfRows ++;
+    return NoOfRows;
     }
     public int hashCode() {
         return Objects.hash(Name);
