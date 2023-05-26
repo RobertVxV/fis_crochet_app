@@ -10,6 +10,14 @@ public class Design {
 
     private String ownerUsername;
 
+    public String getOwnerUsername() {
+        return ownerUsername;
+    }
+
+    public void setOwnerUsername(String ownerUsername) {
+        this.ownerUsername = ownerUsername;
+    }
+
     public int getNoOfRows() {
         return NoOfRows;
     }
