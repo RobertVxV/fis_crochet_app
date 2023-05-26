@@ -8,6 +8,7 @@ import com.example.fis_crochet_app.model.Stitch;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -53,6 +54,10 @@ public class DesignService {
             current_design.addStitch(s);
             designRepository.update(current_design);
         }
+    public static void addPhotoToDesign(byte[] i){
+        current_design.addItem(i);
+        designRepository.update(current_design);
+    }
     public static String getDesignDifficulty() {
         return current_design.getDifficulty();
     }

@@ -14,9 +14,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -53,8 +56,21 @@ public class DesignMakingController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         for(Object o : DesignService.Items() )
         {
-            Label l = new Label(o.toString());
-            Vbox.getChildren().add(l);
+            if (o instanceof byte[])
+            {
+                Image image = new Image(new ByteArrayInputStream((byte[]) o));
+                ImageView imageView = new ImageView(image);
+                imageView.prefWidth(200);
+                imageView.prefHeight(200);
+                imageView.setFitWidth(200);
+                imageView.setFitHeight(200);
+                Vbox.getChildren().add(imageView);
+            }
+            else
+            {
+                Label l = new Label(o.toString());
+                Vbox.getChildren().add(l);
+            }
 
         }
         DesignPane.setContent(Vbox);
