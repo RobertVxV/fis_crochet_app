@@ -4,6 +4,7 @@ import com.example.fis_crochet_app.model.Design;
 import com.example.fis_crochet_app.model.EditableDesign;
 import com.example.fis_crochet_app.model.Stitch;
 import com.example.fis_crochet_app.services.DesignService;
+import com.example.fis_crochet_app.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
