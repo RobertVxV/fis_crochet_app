@@ -35,6 +35,7 @@ public class AddRowController {
     protected void handleSubmitActions (ActionEvent event) throws IOException{
 
         Row r = new Row(Row.getText());
+        r.setTotalStitches(r.calculateTotalStitches(DesignService.Stitches()));
         DesignService.addRowToDesign(r);
         root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

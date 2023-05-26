@@ -56,7 +56,7 @@ public class MainPageController {
     }
     @FXML
     protected void handleLikedDesignsActions(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("new_design_entrance.fxml"));
+        root = FXMLLoader.load(getClass().getResource("liked_designs.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
