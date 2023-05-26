@@ -55,8 +55,12 @@ public class MainPageController {
         welcomeText.setText("Welcome to BrowseDesigns!");
     }
     @FXML
-    protected void handleLikedDesignsActions () {
-        welcomeText.setText("Welcome to LikedDesigns!");
+    protected void handleLikedDesignsActions(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("new_design_entrance.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     protected void openLoginPage(ActionEvent event) throws IOException {
