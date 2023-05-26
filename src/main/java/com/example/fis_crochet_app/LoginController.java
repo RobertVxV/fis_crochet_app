@@ -61,16 +61,12 @@ public class LoginController {
                 User user = UserService.login(usernameTextField.getText(), passwordField.getText());
                 loginMessageLabel.setTextFill(Color.GREEN);
                 loginMessageLabel.setText("Ok");
-                /*if (user.getRole().equals("Client")) {
-                    MainPageApp.switchScene("dashboard_client.fxml", "Dashboard client");
-                } else if (user.getRole().equals("Muncitor")) {
-                    MainPageApp.switchScene("dashboard_muncitor.fxml", "Dashboard muncitor");
-                }*/
+                openMainPage(e);
             }catch (BadCredentials e2){
                 loginMessageLabel.setTextFill(Color.RED);
                 loginMessageLabel.setText(e2.getMessage());
             }
-            openMainPage(e);
+
         }
         else {
             loginMessageLabel.setText("Please enter username and password.");
