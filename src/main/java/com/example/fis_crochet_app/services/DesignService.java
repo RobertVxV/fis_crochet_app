@@ -141,10 +141,13 @@ public static String listStitches()
     {
         r.setNo(current_design.getRowNumber());
         current_design.addItem(r);
+        designRepository.update(current_design);
     }
     public static void addTextToDesign(String s)
     {
         current_design.addItem(s);
+
+        designRepository.update(current_design);
     }
         public static Integer getDesignsCount() {
             int n = 0;
@@ -153,10 +156,8 @@ public static String listStitches()
             return n;
         }
 
-    public static void setCurrentDesign(String s) {
-            for(Design d : designRepository.find())
-                if (d.getName().equals(s))
-                    current_design = d;
+    public static void setCurrentDesign(String name) {
+        current_design = findDesign(name);
     }
 }
 

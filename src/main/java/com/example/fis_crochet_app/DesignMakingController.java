@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
 ;
 public class DesignMakingController implements Initializable {
 
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -51,18 +52,10 @@ public class DesignMakingController implements Initializable {
     @FXML
     public void initialize(URL arg0, ResourceBundle arg1) {
         for(Object o : DesignService.Items() )
-        {   if (o.getClass() == row.getClass())
         {
-            Label l = new Label();
-            l.setText(o.toString());
-           Vbox.getChildren().add(l);
-        }
-        if(o.getClass() == text.getClass())
-        {
-            Label l = new Label();
-            l.setText(o.toString());
+            Label l = new Label(o.toString());
             Vbox.getChildren().add(l);
-        }
+
         }
         DesignPane.setContent(Vbox);
 
