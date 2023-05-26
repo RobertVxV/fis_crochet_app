@@ -3,6 +3,7 @@ module com.example.fis_crochet_app {
     requires javafx.fxml;
     requires nitrite;
     requires com.fasterxml.jackson.databind;
+    requires java.desktop;
 
 
     opens com.example.fis_crochet_app to javafx.fxml;
