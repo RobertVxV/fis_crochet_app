@@ -3,6 +3,7 @@ package com.example.fis_crochet_app;
 import com.example.fis_crochet_app.model.Design;
 
 import com.example.fis_crochet_app.services.DesignService;
+import com.example.fis_crochet_app.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -34,6 +36,10 @@ public class ViewDesignController implements Initializable {
     @FXML
     private Button Like_design;
     @FXML
+    private Button Edit;
+    @FXML
+    private Button Back;
+    @FXML
     private ScrollPane Rows;
     @FXML
     private Label DescriptionLabel;
@@ -56,7 +62,7 @@ public class ViewDesignController implements Initializable {
         OwnerLabel.setText(DesignService.get_current_design().getOwnerUsername());
         DescriptionLabel.setText(DesignService.get_current_design().getDescription());
 
-        if(DesignService.get_current_design().isFree())
+        if(DesignService.get_current_design().isFree() || UserService.get_logged_in().getUsername().equals(DesignService.get_current_design().getOwnerUsername()))
         {
             PriceLabel.setText("Free");
 
@@ -89,14 +95,44 @@ public class ViewDesignController implements Initializable {
             Vbox.getChildren().add(l);
             Rows.setContent(Vbox);
         }
+        if(UserService.get_logged_in().getUsername().equals(DesignService.get_current_design().getOwnerUsername()))
+            PriceLabel.setText(DesignService.getDesignPrice().toString());
 
     }
 
     @FXML
     protected void goToBuy(ActionEvent event) throws IOException {
-        //Trebuie pus designul pe care vrei sa il cumperi
         BuyDesignController.design = DesignService.get_current_design();
         root = FXMLLoader.load(getClass().getResource("buy_design.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void handleEditActions (ActionEvent event) throws IOException{
+        if(UserService.get_logged_in().getUsername().equals(DesignService.get_current_design().getOwnerUsername())) {
+            root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Register Confirmation");
+//        alert.setContentText("You succesfully registered, you can now login.");
+
+            alert.setContentText("" +
+                    "Only the owner can edit this design!");
+            alert.show();
+        }
+
+    }
+    @FXML
+    protected void handleBackToMenuActions (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
