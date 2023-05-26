@@ -61,10 +61,14 @@ public class ViewDesignController implements Initializable {
         DifficultyLabel.setText(DesignService.get_current_design().getDifficulty());
         OwnerLabel.setText(DesignService.get_current_design().getOwnerUsername());
         DescriptionLabel.setText(DesignService.get_current_design().getDescription());
+        PriceLabel.setText(DesignService.getDesignPrice().toString());
+        boolean userBoughtThisDesign = false;
+        for(String s :UserService.get_logged_in().getDesignuri_cumparate())
+            if(DesignService.getDesignName().equals(s))
+                userBoughtThisDesign = true;
 
-        if(DesignService.get_current_design().isFree() || UserService.get_logged_in().getUsername().equals(DesignService.get_current_design().getOwnerUsername()))
+        if(DesignService.get_current_design().isFree() || UserService.get_logged_in().getUsername().equals(DesignService.get_current_design().getOwnerUsername()) || userBoughtThisDesign)
         {
-            PriceLabel.setText("Free");
 
             for(Object o : DesignService.Items() )
             {
@@ -95,19 +99,30 @@ public class ViewDesignController implements Initializable {
             Vbox.getChildren().add(l);
             Rows.setContent(Vbox);
         }
-        if(UserService.get_logged_in().getUsername().equals(DesignService.get_current_design().getOwnerUsername()))
-            PriceLabel.setText(DesignService.getDesignPrice().toString());
 
     }
 
     @FXML
     protected void goToBuy(ActionEvent event) throws IOException {
-        BuyDesignController.design = DesignService.get_current_design();
-        root = FXMLLoader.load(getClass().getResource("buy_design.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        boolean userBoughtThisDesign = false;
+        for(String s :UserService.get_logged_in().getDesignuri_cumparate())
+            if(DesignService.getDesignName().equals(s))
+                userBoughtThisDesign = true;
+        if(!userBoughtThisDesign) {
+            BuyDesignController.design = DesignService.get_current_design();
+            root = FXMLLoader.load(getClass().getResource("buy_design.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Register Confirmation");
+            alert.setContentText("You already bought this design!");
+            alert.show();
+        }
     }
     @FXML
     protected void handleEditActions (ActionEvent event) throws IOException{
@@ -122,10 +137,7 @@ public class ViewDesignController implements Initializable {
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Register Confirmation");
-//        alert.setContentText("You succesfully registered, you can now login.");
-
-            alert.setContentText("" +
-                    "Only the owner can edit this design!");
+            alert.setContentText("Only the owner can edit this design!");
             alert.show();
         }
 

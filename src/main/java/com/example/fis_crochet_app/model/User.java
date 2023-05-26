@@ -15,6 +15,9 @@ User {
 
     private ArrayList<String> designuri_cumparate = new  ArrayList<String>();
 
+    public ArrayList<String> getDesignuri_cumparate() {
+        return designuri_cumparate;
+    }
 
     public void addDesign(String d)
     {
