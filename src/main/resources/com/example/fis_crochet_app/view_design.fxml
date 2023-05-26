@@ -6,9 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.fis_crochet_app.ViewDesignController"
             prefHeight="400.0" prefWidth="600.0">
+
+
+    <Button fx:id="Buy_design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" onAction="#goToBuy" prefHeight="42.0" prefWidth="172.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Buy design" textFill="#dcc8d4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+        <GridPane.margin>
+            <Insets bottom="20" left="0" right="0" top="20" />
+        </GridPane.margin>
+        <font>
+            <Font name="Bookshelf Symbol 7" size="20.0" />
+        </font>
+    </Button>
+
+
+
 
 </AnchorPane>

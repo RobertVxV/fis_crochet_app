@@ -23,13 +23,15 @@ public class UserService {
         Nitrite db = FileSystemService.getDatabase();
         System.out.println(User.class);
         userRepository = db.getRepository(User.class);
-
         db.commit();
     }
 
     public static void addUser(String username, String email, String password) throws UsernameAlreadyExistsException {
-        checkUserDoesNotAlreadyExist(username);
+        checkUserDoesNotAlreadyExist(username, email);
         userRepository.insert(new User(username, email, encodePassword(username, password)));
+    }
+    public static void updateUser(User u){
+        userRepository.update(u);
     }
 
     public static User findUser(String email) {
@@ -40,14 +42,16 @@ public class UserService {
         return null;
     }
 
-    private static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String username, String email) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
-            if (Objects.equals(email, user.getEmail()))
+            if (username.equals(user.getUsername()))
+                throw new UsernameAlreadyExistsException(username);
+            if (email.equals(user.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
     }
 
-    public static String encodePassword(String salt, String password) {
+    private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 

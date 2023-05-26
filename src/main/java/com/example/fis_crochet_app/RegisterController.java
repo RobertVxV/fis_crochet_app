@@ -59,11 +59,11 @@ public class RegisterController {
                     VoucherService.addVoucher(usernameTextField.getText(), 20);
 
 
+                    registerConfirmation(e);
                 } catch (UsernameAlreadyExistsException e1) {
                     registerMessageLabel.setText(e1.getMessage());
                 }
 
-                registerConfirmation(e);
                 return;
             }
         }
