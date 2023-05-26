@@ -1,9 +1,6 @@
 package com.example.fis_crochet_app;
 
-import com.example.fis_crochet_app.services.DesignService;
-import com.example.fis_crochet_app.services.FileSystemService;
-import com.example.fis_crochet_app.services.DesignFileSystemService;
-import com.example.fis_crochet_app.services.UserService;
+import com.example.fis_crochet_app.services.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,6 +20,7 @@ public class LoginApp extends Application {
         DesignFileSystemService.initDesignDatabase();
         UserService.init();
         DesignService.init();
+        VoucherService.init();
 
         //stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(LoginApp.class.getResource("login_page.fxml"));

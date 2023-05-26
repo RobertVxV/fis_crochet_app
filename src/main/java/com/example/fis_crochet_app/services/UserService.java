@@ -62,7 +62,7 @@ public class UserService {
     public static User login(String username, String pass) throws BadCredentials {
         String encoded = encodePassword(username, pass);
         for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getEmail())) {
+            if (Objects.equals(username, user.getUsername())) {
                 if (Objects.equals(encoded, user.getPassword())) {
                     logged_in = user;
                     return user;
