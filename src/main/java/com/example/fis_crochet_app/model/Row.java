@@ -34,9 +34,11 @@ public class Row {
         this.StitchesUsed = Text;
         this.TotalStitches = 0;
     }
+    @Override
     public String toString()
     {
-        String s = "R" + No + ": " + StitchesUsed + " Total: "  + TotalStitches;
+        String s = new String();
+         s = "R" + No + ": " + StitchesUsed + " Total: "  + TotalStitches;
         return s;
     }
 }

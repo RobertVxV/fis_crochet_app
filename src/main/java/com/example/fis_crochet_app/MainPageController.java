@@ -33,9 +33,14 @@ public class MainPageController {
 
 
     @FXML
-    protected void handleMyCreationsActions () {
-        welcomeText.setText("Welcome to MyCreations!");
+    protected void handleMyCreationsActions (ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("my_design.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
+
     @FXML
     protected void handleNewCreationActions (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("new_design_entrance.fxml"));

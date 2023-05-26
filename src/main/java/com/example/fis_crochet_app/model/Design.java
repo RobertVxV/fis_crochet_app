@@ -15,6 +15,7 @@ public class Design {
         NoOfRows = noOfRows;
     }
 
+    //private User Owner;
     private double Price;
     private boolean Free;
     private String Description;

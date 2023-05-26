@@ -36,6 +36,6 @@
                 <Insets right="20.0" />
             </GridPane.margin>
         </TextField>
-      <Button fx:id="Cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleSubmitActions" prefHeight="27.0" prefWidth="231.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="Cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleCancelActions" prefHeight="27.0" prefWidth="231.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
     </children>
 </GridPane>
