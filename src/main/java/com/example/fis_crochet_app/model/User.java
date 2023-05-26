@@ -3,14 +3,23 @@ package com.example.fis_crochet_app.model;
 
 import org.dizitart.no2.objects.Id;
 
+import java.util.ArrayList;
+
 public class
 User {
-    @Id
+
     private String email;
     private String password;
-
+    @Id
     private String username;
 
+    private ArrayList<String> designuri_cumparate = new  ArrayList<String>();
+
+
+    public void addDesign(String d)
+    {
+        designuri_cumparate.add(d);
+    }
     public User(String username, String email, String password) {
         this.email = email;
         this.password = password;
