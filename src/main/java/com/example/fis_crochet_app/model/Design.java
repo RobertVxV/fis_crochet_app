@@ -1,11 +1,14 @@
 package com.example.fis_crochet_app.model;
 
+import com.example.fis_crochet_app.services.UserService;
 import org.dizitart.no2.objects.Id;
 import java.util.*;
 public class Design {
     private int NoOfRows;
     @Id
     private String Name;
+
+    private String ownerUsername;
 
     public int getNoOfRows() {
         return NoOfRows;
@@ -30,6 +33,7 @@ public class Design {
     public Design(String Name, String Difficulty, double Price, String Description, boolean Public, boolean Free)
     {
         this.Name = Name;
+        this.ownerUsername = UserService.get_logged_in().getUsername();
         this.Difficulty = Difficulty;
         if(Free)
         {
