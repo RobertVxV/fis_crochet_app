@@ -74,6 +74,10 @@ public class UserService {
         throw new BadCredentials();
     }
 
+    public static void logout() {
+        UserService.logged_in = null;
+    }
+
     public static User get_logged_in() {
         return logged_in;
     }
