@@ -1,5 +1,6 @@
 package com.example.fis_crochet_app;
 
+import com.example.fis_crochet_app.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,6 +68,7 @@ public class MainPageController {
     }
     @FXML
     protected void handleExitActions (ActionEvent event) throws IOException {
+        UserService.logout();
         openLoginPage(event);
     }
 }
