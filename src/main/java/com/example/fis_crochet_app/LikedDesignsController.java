@@ -4,6 +4,7 @@ import com.example.fis_crochet_app.model.Design;
 import com.example.fis_crochet_app.model.EditableDesign;
 import com.example.fis_crochet_app.model.Stitch;
 import com.example.fis_crochet_app.services.DesignService;
+import com.example.fis_crochet_app.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -26,9 +27,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 ;
+
 public class LikedDesignsController implements Initializable {
 
     Color lightPurple = Color.rgb(255, 204, 255);
@@ -40,17 +43,17 @@ public class LikedDesignsController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
-    private TableView<EditableDesign> MyDesigns ;
+    private TableView<EditableDesign> MyDesigns;
 
     @FXML
-    private TableColumn editColumn ;
+    private TableColumn editColumn;
 
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1)
-    {
+    public void initialize(URL arg0, ResourceBundle arg1) {
         editColumn.setCellValueFactory(new PropertyValueFactory<EditableDesign, Button>("Edit"));
-        for(Design d : DesignService.getDesignRepo().find()) {
+        ArrayList<Design> likedDesigns = UserService.get_logged_in().getLikedDesigns();
+        for (Design d : likedDesigns) {
             Button b = new Button(d.getName());
             b.setAlignment(Pos.CENTER);
             b.setPrefWidth(500);
@@ -66,21 +69,24 @@ public class LikedDesignsController implements Initializable {
         }
 
     }
+
     @FXML
-    private Button Back ;
+    private Button Back;
+
     @FXML
-    protected void handleViewActions (Button b, ActionEvent event) throws IOException{
+    protected void handleViewActions(Button b, ActionEvent event) throws IOException {
         DesignService.setCurrentDesign(b.getText());
         root = FXMLLoader.load(getClass().getResource("view_design.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
-    protected void handleBackToMenuActions (ActionEvent event) throws IOException{
+    protected void handleBackToMenuActions(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
