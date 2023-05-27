@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,16 +33,26 @@ public class AddRowController {
     private Button Cancel ;
 
     @FXML
-    protected void handleSubmitActions (ActionEvent event) throws IOException{
+    private Label Error_Label;
 
-        Row r = new Row(Row.getText());
-        r.setTotalStitches(r.calculateTotalStitches(DesignService.Stitches()));
-        DesignService.addRowToDesign(r);
-        root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    protected void handleSubmitActions (ActionEvent event) throws IOException{
+        if (Row.getText().isBlank() == false ) {
+            //|| Character.compare(Row.getText().charAt(0), ' ') != 0
+            Row r = new Row(Row.getText());
+            r.setTotalStitches(r.calculateTotalStitches(DesignService.Stitches()));
+            DesignService.addRowToDesign(r);
+            root = FXMLLoader.load(getClass().getResource("design_making.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            Error_Label.setText("Please add a valid row");
+        }
+
     }
     @FXML
     protected void handleCancelActions (ActionEvent event) throws IOException{
