@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 ;
@@ -49,9 +51,15 @@ public class BrowseDesignController implements Initializable {
     @FXML
     private CheckBox freeCheckBox;
     @FXML
-    private CheckBox notFreeCheckBox;
+    private CheckBox paidCheckBox;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private TextField searchTextField;
     @FXML
     private TableView<EditableDesign> BrowseDesigns ;
+
+    private ArrayList<Design> tempDesign = new ArrayList<Design>();
 
     @FXML
     private TableColumn editColumn ;
@@ -63,40 +71,85 @@ public class BrowseDesignController implements Initializable {
         sortingOptionBox.getItems().addAll(sortingOptions);
         editColumn.setCellValueFactory(new PropertyValueFactory<EditableDesign, Button>("Edit"));
         for(Design d : DesignService.getDesignRepo().find()) {
-            Button b = new Button(d.getName());
-            b.setAlignment(Pos.CENTER);
-            b.setPrefWidth(500);
-            b.setBackground(background);
-            b.setOnAction(event -> {
-                try {
-                    handleViewActions(b, event);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-            BrowseDesigns.getItems().add(new EditableDesign(d.getName(), b));
+            addDesignToTableView(d);
         }
     }
     @FXML
     private Button Back ;
-    @FXML
-    protected void handleApplyFilters(ActionEvent event)
+    private void addDesignToTableView(Design d)
     {
-//        boolean free = freeCheckBox.isSelected();
-//        for(Design d : DesignService.getDesignRepo().find()) {
-//
-//        }
+        Button b = new Button(d.getName());
+        b.setAlignment(Pos.CENTER);
+        b.setPrefWidth(500);
+        b.setBackground(background);
+        b.setOnAction(event1 -> {
+            try {
+                handleViewActions(b, event1);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        BrowseDesigns.getItems().add(new EditableDesign(d.getName(), b));
+    }
+    private void populateFilterArrayList(ArrayList<Design> arrayList)
+    {
+        for(Design d : DesignService.getDesignRepo().find()) {
+            if(beginnerCheckBox.isSelected() && d.getDifficulty().equals("Beginner")){
+                arrayList.add(d);
+
+            }
+            if(intermediateCheckBox.isSelected() && d.getDifficulty().equals("Intermediate")){
+                arrayList.add(d);
+            }
+            if(advancedCheckBox.isSelected() && d.getDifficulty().equals("Advanced")){
+                arrayList.add(d);
+            }
+
+            if(freeCheckBox.isSelected() == paidCheckBox.isSelected())
+            {
+                //do nothing - shows all queries
+            }
+            else
+            {
+                if (freeCheckBox.isSelected() && !d.isFree()) {
+                    arrayList.remove(d);
+                }
+                if (paidCheckBox.isSelected() && d.isFree()) {
+                    arrayList.remove(d);
+                }
+            }
+            if(!d.getName().contains(searchTextField.getText()))
+            {
+                arrayList.remove(d);
+            }
+        }
+    }
+    private int difficultyOrder(String s1, String s2){
+        if(s1.equals("Beginner") && s2.equals("Intermediate")) return -1;
+        if(s1.equals("Intermediate") && s2.equals("Advanced")) return -1;
+        return 1;
+    }
+
+    private void sortFunction(ArrayList<Design> arrayList, String criteria)
+    {
+        if(criteria == null) return;
+        switch (criteria) {
+            case "Name" -> arrayList.sort(Comparator.comparing(Design::getName));
+            case "Difficulty" -> arrayList.sort((d1,d2) -> difficultyOrder(d1.getDifficulty(), d2.getDifficulty()));
+            case "Price" -> arrayList.sort(Comparator.comparing(Design::getPrice));
+        }
     }
     @FXML
-    protected void handleSort(ActionEvent event)
+    protected void handleSearchActions(ActionEvent event)
     {
-
-    }
-
-    @FXML
-    protected void handleSearch(ActionEvent event)
-    {
-
+        BrowseDesigns.getItems().clear();
+        tempDesign.clear();
+        populateFilterArrayList(tempDesign);
+        sortFunction(tempDesign, sortingOptionBox.getValue());
+        for(Design d : tempDesign) {
+            addDesignToTableView(d);
+        }
     }
 
     @FXML

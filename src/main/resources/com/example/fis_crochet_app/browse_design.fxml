@@ -24,19 +24,17 @@
             </columns>
         </TableView>
       <Label layoutX="22.0" layoutY="82.0" text="Enter keywords:" />
-      <TextField fx:id="searchTextField" layoutX="115.0" layoutY="77.0" prefHeight="26.0" prefWidth="190.0" />
-      <Button fx:id="searchButton" layoutX="315.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleSearch" text="Search" />
+      <TextField fx:id="searchTextField" layoutX="115.0" layoutY="77.0" onInputMethodTextChanged="#handleSearchActions" prefHeight="26.0" prefWidth="190.0" />
+      <Button fx:id="searchButton" defaultButton="true" layoutX="315.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleSearchActions" text="Search" />
       <Label layoutX="19.0" layoutY="127.0" prefHeight="18.0" prefWidth="60.0" text="Filter by:" />
       <Label layoutX="20.0" layoutY="158.0" text="Difficulty:" />
-      <CheckBox fx:id="beginnerCheckBox" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" text="Beginner" />
-      <CheckBox fx:id="intermediateCheckBox" layoutX="20.0" layoutY="214.0" mnemonicParsing="false" text="Intermediate" />
-      <CheckBox fx:id="advancedCheckBox" layoutX="20.0" layoutY="243.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="107.0" text="Advanced" />
+      <CheckBox fx:id="beginnerCheckBox" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Beginner" />
+      <CheckBox fx:id="intermediateCheckBox" layoutX="20.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Intermediate" />
+      <CheckBox fx:id="advancedCheckBox" layoutX="20.0" layoutY="243.0" mnemonicParsing="false" onAction="#handleSearchActions" prefHeight="18.0" prefWidth="107.0" selected="true" text="Advanced" />
       <Label layoutX="20.0" layoutY="286.0" text="Price:" />
-      <CheckBox fx:id="freeCheckBox" layoutX="22.0" layoutY="311.0" mnemonicParsing="false" text="Free" />
-      <CheckBox fx:id="notFreeCheckBox" layoutX="22.0" layoutY="337.0" mnemonicParsing="false" text="Not-Free" />
+      <CheckBox fx:id="freeCheckBox" layoutX="22.0" layoutY="311.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Free" />
+      <CheckBox fx:id="paidCheckBox" layoutX="22.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Paid" />
       <Label layoutX="403.0" layoutY="81.0" text="Sort by:" />
       <ChoiceBox fx:id="sortingOptionBox" layoutX="450.0" layoutY="77.0" prefHeight="26.0" prefWidth="122.0" />
-      <Button fx:id="applyFiltersButton" layoutX="23.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleApplyFilters" text="Apply Filters" />
-      <Button fx:id="sortButton" layoutX="587.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleSort" text="Sort" />
     </children>
 </AnchorPane>
