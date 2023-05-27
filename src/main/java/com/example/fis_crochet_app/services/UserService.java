@@ -15,8 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class UserService {
-
-    private static ObjectRepository<User> userRepository;
+    private static ObjectRepository <User> userRepository;
     private static User logged_in = null;
 
     public static void init() {
@@ -32,6 +31,10 @@ public class UserService {
     }
     public static void updateUser(User u){
         userRepository.update(u);
+    }
+    public static void removeUser(User u) { userRepository.remove(u);}
+    public static ObjectRepository <User> getUserRepository() {
+        return userRepository;
     }
 
     public static User findUser(String email) {
