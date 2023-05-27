@@ -60,6 +60,7 @@ public class BrowseDesignController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
+        sortingOptionBox.getItems().addAll(sortingOptions);
         editColumn.setCellValueFactory(new PropertyValueFactory<EditableDesign, Button>("Edit"));
         for(Design d : DesignService.getDesignRepo().find()) {
             Button b = new Button(d.getName());
@@ -79,10 +80,25 @@ public class BrowseDesignController implements Initializable {
     @FXML
     private Button Back ;
     @FXML
-    protected void handlePriceFilter(ActionEvent event)
+    protected void handleApplyFilters(ActionEvent event)
     {
-        //for(Design d : DesignService.getDesignRepo().find()) {
+//        boolean free = freeCheckBox.isSelected();
+//        for(Design d : DesignService.getDesignRepo().find()) {
+//
+//        }
     }
+    @FXML
+    protected void handleSort(ActionEvent event)
+    {
+
+    }
+
+    @FXML
+    protected void handleSearch(ActionEvent event)
+    {
+
+    }
+
     @FXML
     protected void handleViewActions (Button b, ActionEvent event) throws IOException{
         DesignService.setCurrentDesign(b.getText());
