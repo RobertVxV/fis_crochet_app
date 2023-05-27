@@ -3,6 +3,7 @@ package com.example.fis_crochet_app;
 import com.example.fis_crochet_app.model.Design;
 import com.example.fis_crochet_app.model.EditableDesign;
 import com.example.fis_crochet_app.services.DesignService;
+import com.example.fis_crochet_app.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,9 +71,7 @@ public class BrowseDesignController implements Initializable {
     {
         sortingOptionBox.getItems().addAll(sortingOptions);
         editColumn.setCellValueFactory(new PropertyValueFactory<EditableDesign, Button>("Edit"));
-        for(Design d : DesignService.getDesignRepo().find()) {
-            addDesignToTableView(d);
-        }
+        handleSearchActions();
     }
     @FXML
     private Button Back ;
@@ -123,6 +122,13 @@ public class BrowseDesignController implements Initializable {
             {
                 arrayList.remove(d);
             }
+            if(!d.isPublic())
+            {
+                if(!d.getOwnerUsername().equals(UserService.get_logged_in()))
+                {
+                    arrayList.remove(d); //if not public and not owner by current used, remove from view
+                }
+            }
         }
     }
     private int difficultyOrder(String s1, String s2){
@@ -141,7 +147,7 @@ public class BrowseDesignController implements Initializable {
         }
     }
     @FXML
-    protected void handleSearchActions(ActionEvent event)
+    protected void handleSearchActions()
     {
         BrowseDesigns.getItems().clear();
         tempDesign.clear();
