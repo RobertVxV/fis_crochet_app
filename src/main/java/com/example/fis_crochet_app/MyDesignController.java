@@ -52,18 +52,20 @@ public class MyDesignController implements Initializable {
     {
         editColumn.setCellValueFactory(new PropertyValueFactory<EditableDesign, Button>("Edit"));
         for(Design d : DesignService.getDesignRepo().find()) {
-            Button b = new Button(d.getName());
-            b.setAlignment(Pos.CENTER);
-            b.setPrefWidth(500);
-            b.setBackground(background);
-            b.setOnAction(event -> {
-                try {
-                    handleEditActions(b, event);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-            MyDesigns.getItems().add(new EditableDesign(d.getName(), b));
+            if(UserService.get_logged_in().getUsername().equals(d.getOwnerUsername())) {
+                Button b = new Button(d.getName());
+                b.setAlignment(Pos.CENTER);
+                b.setPrefWidth(500);
+                b.setBackground(background);
+                b.setOnAction(event -> {
+                    try {
+                        handleEditActions(b, event);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                MyDesigns.getItems().add(new EditableDesign(d.getName(), b));
+            }
         }
 
     }
