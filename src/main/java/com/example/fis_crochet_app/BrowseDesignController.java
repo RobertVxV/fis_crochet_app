@@ -124,7 +124,7 @@ public class BrowseDesignController implements Initializable {
             }
             if(!d.isPublic())
             {
-                if(!d.getOwnerUsername().equals(UserService.get_logged_in()))
+                if(!d.getOwnerUsername().equals(UserService.get_logged_in().getUsername()))
                 {
                     arrayList.remove(d); //if not public and not owner by current used, remove from view
                 }
