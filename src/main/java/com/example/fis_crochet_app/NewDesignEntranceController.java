@@ -47,6 +47,9 @@ public class NewDesignEntranceController implements Initializable {
     private ChoiceBox<String> Difficulty_Box = new ChoiceBox(FXCollections.observableArrayList(Difficulties));
     @FXML
     private Button Submit_Design_Info_Button ;
+
+    @FXML
+    private Button Exit ;
    @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
@@ -83,5 +86,13 @@ public class NewDesignEntranceController implements Initializable {
             Error_Message.setTextFill(Color.RED);
             Error_Message.setText("Please fill the form");
         }
+    }
+    @FXML
+    protected void handleExitAction(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("main_page.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
