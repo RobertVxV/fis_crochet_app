@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5d5ec;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.LikedDesignsController">
     <children>
         <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleBackToMenuActions" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Back To Menu" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="20.0" prefHeight="18.0" prefWidth="307.0" text="My Designs">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="20.0" prefHeight="18.0" prefWidth="307.0" text="Liked Designs">
             <font>
                 <Font name="Bookman Old Style" size="30.0" />
             </font>

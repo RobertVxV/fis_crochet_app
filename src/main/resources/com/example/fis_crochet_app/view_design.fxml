@@ -19,7 +19,7 @@
             <Font name="Bookshelf Symbol 7" size="20.0" />
         </font>
     </Button>
-   <Button fx:id="Like_Design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="161.0" layoutY="459.0" onAction="#goToBuy" prefHeight="42.0" prefWidth="80.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Like" textFill="#dcc8d4">
+   <Button fx:id="Like_Design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="158.0" layoutY="459.0" onAction="#handleLikeAction" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Like" textFill="#dcc8d4">
       <font>
          <Font name="Bookshelf Symbol 7" size="20.0" />
       </font>
@@ -31,27 +31,29 @@
       </font>
    </Label>
    <Label layoutX="29.0" layoutY="66.0" text="Made by:" />
-   <Label layoutX="29.0" layoutY="96.0" text="Difficulty:" />
-   <Label layoutX="104.0" layoutY="167.0" text="Description">
+   <Label layoutX="29.0" layoutY="94.0" text="Difficulty:" />
+   <Label layoutX="104.0" layoutY="169.0" text="Description">
       <font>
          <Font size="20.0" />
       </font>
    </Label>
-   <Label layoutX="29.0" layoutY="124.0" text="Price:" />
+   <Label layoutX="29.0" layoutY="120.0" text="Price:" />
    <Label fx:id="DescriptionLabel" alignment="TOP_LEFT" layoutX="11.0" layoutY="205.0" prefHeight="182.0" prefWidth="286.0" text="Description" />
    <Label fx:id="OwnerLabel" layoutX="99.0" layoutY="65.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
-   <Label fx:id="DifficultyLabel" layoutX="99.0" layoutY="95.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
-   <Label fx:id="PriceLabel" layoutX="99.0" layoutY="123.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
+   <Label fx:id="DifficultyLabel" layoutX="99.0" layoutY="93.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
+   <Label fx:id="PriceLabel" layoutX="99.0" layoutY="119.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
    <Button fx:id="Edit" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="32.0" layoutY="399.0" onAction="#handleEditActions" prefHeight="42.0" prefWidth="72.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Edit" textFill="#dcc8d4">
       <font>
          <Font name="Bookshelf Symbol 7" size="20.0" />
       </font>
    </Button>
-   <Button fx:id="Back" onAction="#handleBackToMenuActions" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="161.0" layoutY="399.0" prefHeight="42.0" prefWidth="80.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Back" textFill="#dcc8d4">
+   <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="161.0" layoutY="399.0" onAction="#handleBackToMenuActions" prefHeight="42.0" prefWidth="80.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Back" textFill="#dcc8d4">
       <font>
          <Font name="Bookshelf Symbol 7" size="20.0" />
       </font>
    </Button>
+   <Label layoutX="29.0" layoutY="147.0" text="No. of likes:" />
+   <Label fx:id="likesLabel" layoutX="99.0" layoutY="146.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
 
 
 

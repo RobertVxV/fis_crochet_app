@@ -2,7 +2,9 @@ package com.example.fis_crochet_app.model;
 
 import com.example.fis_crochet_app.services.UserService;
 import org.dizitart.no2.objects.Id;
+
 import java.util.*;
+
 public class Design {
     private int NoOfRows;
     @Id
@@ -38,18 +40,17 @@ public class Design {
     public ArrayList<Stitch> getStitches() {
         return stitches;
     }
-    public Design(){}
-    public Design(String Name, String Difficulty, double Price, String Description, boolean Public, boolean Free)
-    {
+
+    public Design() {
+    }
+
+    public Design(String Name, String Difficulty, double Price, String Description, boolean Public, boolean Free) {
         this.Name = Name;
         this.ownerUsername = UserService.get_logged_in().getUsername();
         this.Difficulty = Difficulty;
-        if(Free)
-        {
+        if (Free) {
             this.Price = 0;
-        }
-        else
-        {
+        } else {
             this.Price = Price;
         }
         this.Free = Free;
@@ -119,11 +120,15 @@ public class Design {
     }
 
     public int getLikes() {
-        return Likes;
+        return this.Likes;
     }
 
-    public void setLikes(int likes) {
-        Likes = likes;
+    public void addLike() {
+        this.Likes = this.Likes + 1;
+    }
+
+    public void removeLike() {
+        this.Likes = this.Likes - 1;
     }
 
     public ArrayList<Object> getItems() {
@@ -141,13 +146,13 @@ public class Design {
 
     private ArrayList<Object> items = new ArrayList<Object>();
 
-    public String listStitches()
-    {
+    public String listStitches() {
         String s = "";
-        for(Stitch st : this.stitches )
+        for (Stitch st : this.stitches)
             s = s + st.toString() + "\n";
         return s;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -159,10 +164,12 @@ public class Design {
 
         return design != null ? Name.equals(design.Name) : design.Name == null;
     }
+
     public int getRowNumber() {
-    NoOfRows ++;
-    return NoOfRows;
+        NoOfRows++;
+        return NoOfRows;
     }
+
     public int hashCode() {
         return Objects.hash(Name);
     }

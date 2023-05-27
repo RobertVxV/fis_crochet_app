@@ -13,16 +13,31 @@ User {
     @Id
     private String username;
 
-    private ArrayList<String> designuri_cumparate = new  ArrayList<String>();
+    private ArrayList<String> designuri_cumparate = new ArrayList<String>();
+    private ArrayList<Design> likedDesigns = new ArrayList<Design>();
 
     public ArrayList<String> getDesignuri_cumparate() {
         return designuri_cumparate;
     }
 
-    public void addDesign(String d)
-    {
+    public void addDesign(String d) {
         designuri_cumparate.add(d);
     }
+
+    public ArrayList<Design> getLikedDesigns() {
+        return likedDesigns;
+    }
+
+    public void addLikedDesign(Design d) {
+        likedDesigns.add(d);
+        d.addLike();
+    }
+
+    public void removeLikedDesign(Design d) {
+        likedDesigns.remove(d);
+        d.removeLike();
+    }
+
     public User(String username, String email, String password) {
         this.email = email;
         this.password = password;
@@ -35,6 +50,7 @@ User {
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -42,16 +58,19 @@ User {
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
 
-
     public String getUsername() {
         return username;
     }
-    public void setUsername(String username) {this.username = username;}
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     @Override
     public boolean equals(Object o) {
