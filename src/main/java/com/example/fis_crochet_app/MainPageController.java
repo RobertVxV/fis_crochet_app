@@ -51,8 +51,12 @@ public class MainPageController {
         stage.show();
     }
     @FXML
-    protected void handleBrowseDesignsActions () {
-        welcomeText.setText("Welcome to BrowseDesigns!");
+    protected void handleBrowseDesignsActions (ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("browse_design.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     protected void handleLikedDesignsActions(ActionEvent event) throws IOException{

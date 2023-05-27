@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="464.0" prefWidth="682.0" style="-fx-background-color: #f5d5ec;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.BrowseDesignController">
+    <children>
+        <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" layoutX="287.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleBackToMenuActions" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Back To Menu" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="14.0" prefHeight="18.0" prefWidth="307.0" text="Search Design">
+            <font>
+                <Font name="Bookman Old Style" size="30.0" />
+            </font>
+        </Label>
+        <TableView fx:id="BrowseDesigns" layoutX="148.0" layoutY="127.0" prefHeight="263.0" prefWidth="492.0" style="-fx-background-color: e3cfe8; -fx-border-color: #47064e;">
+            <columns>
+                <TableColumn fx:id="editColumn" prefWidth="489.5999755859375" style="-fx-background-color:  #d487d3; -fx-border-color: #47064e; " text="Designs" />
+            </columns>
+        </TableView>
+      <Label layoutX="22.0" layoutY="82.0" text="Enter keywords:" />
+      <TextField fx:id="searchTextField" layoutX="115.0" layoutY="77.0" onInputMethodTextChanged="#handleSearchActions" prefHeight="26.0" prefWidth="190.0" />
+      <Button fx:id="searchButton" defaultButton="true" layoutX="315.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleSearchActions" text="Search" />
+      <Label layoutX="19.0" layoutY="127.0" prefHeight="18.0" prefWidth="60.0" text="Filter by:" />
+      <Label layoutX="20.0" layoutY="158.0" text="Difficulty:" />
+      <CheckBox fx:id="beginnerCheckBox" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Beginner" />
+      <CheckBox fx:id="intermediateCheckBox" layoutX="20.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Intermediate" />
+      <CheckBox fx:id="advancedCheckBox" layoutX="20.0" layoutY="243.0" mnemonicParsing="false" onAction="#handleSearchActions" prefHeight="18.0" prefWidth="107.0" selected="true" text="Advanced" />
+      <Label layoutX="20.0" layoutY="286.0" text="Price:" />
+      <CheckBox fx:id="freeCheckBox" layoutX="22.0" layoutY="311.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Free" />
+      <CheckBox fx:id="paidCheckBox" layoutX="22.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleSearchActions" selected="true" text="Paid" />
+      <Label layoutX="403.0" layoutY="81.0" text="Sort by:" />
+      <ChoiceBox fx:id="sortingOptionBox" layoutX="450.0" layoutY="77.0" prefHeight="26.0" prefWidth="122.0" />
+    </children>
+</AnchorPane>
