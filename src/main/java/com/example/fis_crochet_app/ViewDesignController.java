@@ -4,6 +4,7 @@ import com.example.fis_crochet_app.model.Design;
 
 import com.example.fis_crochet_app.model.User;
 import com.example.fis_crochet_app.services.DesignService;
+import com.example.fis_crochet_app.services.ReviewService;
 import com.example.fis_crochet_app.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -115,13 +116,64 @@ public class ViewDesignController implements Initializable {
         }
     }
 
+
+    @FXML
+    protected void goToAddReview(ActionEvent event) throws IOException {
+        if(ReviewService.findReview(UserService.get_logged_in().getUsername() ,DesignService.get_current_design().getName()) != null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("You already reviewed this design!");
+            alert.setContentText(" You already reviewed this design!");
+            alert.show();
+            return;
+        }
+        boolean userBoughtThisDesign = false;
+        for (String s : UserService.get_logged_in().getDesignuri_cumparate())
+            if (DesignService.getDesignName().equals(s))
+                userBoughtThisDesign = true;
+        if(userBoughtThisDesign){
+            AddReviewController.design = DesignService.get_current_design();
+            root = FXMLLoader.load(getClass().getResource("add_review.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("You must own the  design to add a review!");
+            alert.setContentText(" You must own the  design to add a review!");
+            alert.show();
+        }
+    }
+
+    @FXML
+    protected void goToViewReviews(ActionEvent event) throws IOException {
+        if(ReviewService.findReview(DesignService.get_current_design().getName()).size()==0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("There are no reviews!");
+            alert.setContentText("There are no reviews!");
+            alert.show();
+        }else {//TODO
+            ViewReviewsController.design = DesignService.get_current_design();
+            root = FXMLLoader.load(getClass().getResource("view_reviews.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
     @FXML
     protected void goToBuy(ActionEvent event) throws IOException {
         boolean userBoughtThisDesign = false;
         for (String s : UserService.get_logged_in().getDesignuri_cumparate())
             if (DesignService.getDesignName().equals(s))
                 userBoughtThisDesign = true;
-        if (!userBoughtThisDesign) {
+        if(DesignService.get_current_design().getOwnerUsername() == UserService.get_logged_in().getUsername()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("You cannot buy your own design!");
+            alert.setContentText("You cannot buy your own design!");
+            alert.show();
+        }else if (!userBoughtThisDesign) {
             BuyDesignController.design = DesignService.get_current_design();
             root = FXMLLoader.load(getClass().getResource("buy_design.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -130,7 +182,7 @@ public class ViewDesignController implements Initializable {
             stage.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Register Confirmation");
+            alert.setTitle("You already bought this design!");
             alert.setContentText("You already bought this design!");
             alert.show();
         }

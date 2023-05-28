@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.fis_crochet_app.ViewReviewsController"
+            prefHeight="500.0" prefWidth="600.0">
+    <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="14.0" prefHeight="18.0" prefWidth="307.0" text="Search Design">
+        <font>
+            <Font name="Bookman Old Style" size="30.0" />
+        </font>
+    </Label>
+
+    <TableView fx:id="ViewReviews" layoutX="55.0" layoutY="100.0" prefHeight="263.0" prefWidth="492.0" style="-fx-background-color: e3cfe8; -fx-border-color: #47064e;">
+        <columns>
+            <TableColumn fx:id="reviewColumn" prefWidth="489.5999755859375" style="-fx-background-color:  #d487d3; -fx-border-color: #47064e; " text="Reviews" />
+        </columns>
+    </TableView>
+
+    <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #d487d3; -fx-border-color: #47064e;" text="Back" />
+
+
+</AnchorPane>
