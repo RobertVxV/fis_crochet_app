@@ -21,6 +21,7 @@ public class LoginApp extends Application {
         UserService.init();
         DesignService.init();
         VoucherService.init();
+        ReviewService.init();
 
         //stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(LoginApp.class.getResource("login_page.fxml"));

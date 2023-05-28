@@ -11,19 +11,7 @@
 <AnchorPane prefHeight="524.0" prefWidth="770.0" style="-fx-background-color: #f5d5ec; -fx-border-color: #f5d5ec;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fis_crochet_app.ViewDesignController">
 
 
-    <Button fx:id="Buy_design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="32.0" layoutY="459.0" onAction="#goToBuy" prefHeight="42.0" prefWidth="72.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Buy" textFill="#dcc8d4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
-        <GridPane.margin>
-            <Insets bottom="20" left="0" right="0" top="20" />
-        </GridPane.margin>
-        <font>
-            <Font name="Bookshelf Symbol 7" size="20.0" />
-        </font>
-    </Button>
-   <Button fx:id="Like_Design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="158.0" layoutY="459.0" onAction="#handleLikeAction" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Like" textFill="#dcc8d4">
-      <font>
-         <Font name="Bookshelf Symbol 7" size="20.0" />
-      </font>
-   </Button>
+
    <ScrollPane fx:id="Rows" layoutX="314.0" layoutY="63.0" prefHeight="448.0" prefWidth="435.0" style="-fx-background-color: d487d3;" />
    <Label fx:id="TitleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="14.0" prefHeight="38.0" prefWidth="721.0" text="Design Title" textAlignment="CENTER">
       <font>
@@ -42,20 +30,41 @@
    <Label fx:id="OwnerLabel" layoutX="99.0" layoutY="65.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
    <Label fx:id="DifficultyLabel" layoutX="99.0" layoutY="93.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
    <Label fx:id="PriceLabel" layoutX="99.0" layoutY="119.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
-   <Button fx:id="Edit" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="32.0" layoutY="399.0" onAction="#handleEditActions" prefHeight="42.0" prefWidth="72.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Edit" textFill="#dcc8d4">
-      <font>
-         <Font name="Bookshelf Symbol 7" size="20.0" />
-      </font>
-   </Button>
-   <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="161.0" layoutY="399.0" onAction="#handleBackToMenuActions" prefHeight="42.0" prefWidth="80.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Back" textFill="#dcc8d4">
-      <font>
-         <Font name="Bookshelf Symbol 7" size="20.0" />
-      </font>
-   </Button>
+
    <Label layoutX="29.0" layoutY="147.0" text="No. of likes:" />
    <Label fx:id="likesLabel" layoutX="99.0" layoutY="146.0" prefHeight="18.0" prefWidth="195.0" text="Made by:" />
 
 
-
+   <Button fx:id="Edit" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="32.0" layoutY="339.0" onAction="#handleEditActions" prefHeight="42.0" prefWidth="72.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Edit" textFill="#dcc8d4">
+      <font>
+         <Font name="Bookshelf Symbol 7" size="20.0" />
+      </font>
+   </Button>
+   <Button fx:id="Back" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="161.0" layoutY="339.0" onAction="#handleBackToMenuActions" prefHeight="42.0" prefWidth="80.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Back" textFill="#dcc8d4">
+      <font>
+         <Font name="Bookshelf Symbol 7" size="20.0" />
+      </font>
+   </Button>
+   <Button fx:id="Buy_design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="32.0" layoutY="399.0" onAction="#goToBuy" prefHeight="42.0" prefWidth="72.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Buy" textFill="#dcc8d4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+      <GridPane.margin>
+         <Insets bottom="20" left="0" right="0" top="20" />
+      </GridPane.margin>
+      <font>
+         <Font name="Bookshelf Symbol 7" size="20.0" />
+      </font>
+   </Button>
+   <Button fx:id="Like_Design" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="158.0" layoutY="399.0" onAction="#handleLikeAction" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Like" textFill="#dcc8d4">
+      <font>
+         <Font name="Bookshelf Symbol 7" size="20.0" />
+      </font>
+   </Button><Button fx:id="Add_Review" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="32.0" layoutY="459.0" onAction="#goToAddReview" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="Add review" textFill="#dcc8d4">
+   <font>
+      <Font name="Bookshelf Symbol 7" size="12.0" />
+   </font>
+</Button><Button fx:id="View_reviews" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="158.0" layoutY="459.0" onAction="#goToViewReviews" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: &quot;#A63C95&quot;; -fx-border-color: #4f0d3b; -fx-border-width: 2.5;" text="View reviews" textFill="#dcc8d4">
+   <font>
+      <Font name="Bookshelf Symbol 7" size="12.0" />
+   </font>
+</Button>
 
 </AnchorPane>
